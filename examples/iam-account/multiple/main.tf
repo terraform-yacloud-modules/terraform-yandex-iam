@@ -5,8 +5,8 @@ module "iam_accounts" {
 
   source = "../../modules/iam-account"
 
-  name = format("testprefix-%s", each.key)
-  folder_id = "xxx"
+  name         = format("testprefix-%s", each.key)
+  folder_id    = "xxx"
   folder_roles = each.value["folder_roles"]
   cloud_roles  = each.value["cloud_roles"]
 }
