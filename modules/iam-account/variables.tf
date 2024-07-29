@@ -57,6 +57,7 @@ variable "static_access_key_pgp_key" {
 
 variable "enable_api_key" {
   description = "If true, API key will be created"
+  type        = bool
   default     = false
 }
 variable "api_key_pgp_key" {
