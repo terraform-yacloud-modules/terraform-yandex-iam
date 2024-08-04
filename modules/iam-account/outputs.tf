@@ -31,6 +31,7 @@ output "sak_access_key" {
 output "sak_secret_key" {
   description = "Private part of service account static access key"
   value       = var.enable_static_access_key ? yandex_iam_service_account_static_access_key.main[0].secret_key : null
+  sensitive = true
 }
 
 output "sak_encrypted_secret_key" {
