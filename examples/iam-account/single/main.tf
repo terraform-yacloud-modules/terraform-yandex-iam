@@ -8,7 +8,7 @@ module "iam_accounts" {
     "k8s.tunnelClusters.agent"
   ]
   cloud_roles              = []
-  enable_static_access_key = false
+  enable_static_access_key = true
   enable_api_key           = false
   enable_account_key       = false
 
