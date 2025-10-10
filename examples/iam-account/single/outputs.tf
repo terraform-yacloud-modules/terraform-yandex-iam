@@ -31,7 +31,7 @@ output "sak_access_key" {
 output "sak_secret_key" {
   description = "Private part of service account static access key"
   value       = module.iam_accounts.sak_secret_key
-  sensitive = true
+  sensitive   = true
 }
 
 output "sak_encrypted_secret_key" {
