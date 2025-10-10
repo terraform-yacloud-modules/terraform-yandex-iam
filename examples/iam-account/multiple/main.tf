@@ -7,5 +7,5 @@ module "iam_accounts" {
 
   name         = format("testprefix-%s", each.key)
   folder_roles = each.value["folder_roles"]
-#   cloud_roles  = each.value["cloud_roles"]
+  #   cloud_roles  = each.value["cloud_roles"]
 }

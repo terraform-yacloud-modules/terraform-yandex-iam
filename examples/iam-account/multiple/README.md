@@ -27,7 +27,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_iam_accounts"></a> [iam\_accounts](#module\_iam\_accounts) | ../../modules/iam-account | n/a |
+| <a name="module_iam_accounts"></a> [iam\_accounts](#module\_iam\_accounts) | ../../../modules/iam-account | n/a |
 
 ## Resources
 
@@ -37,7 +37,7 @@ No resources.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_iam"></a> [iam](#input\_iam) | n/a | `map` | <pre>{<br>  "app": {<br>    "cloud_roles": [<br>      "editor"<br>    ],<br>    "enabled": true,<br>    "folder_roles": [<br>      "editor"<br>    ]<br>  }<br>}</pre> | no |
+| <a name="input_iam"></a> [iam](#input\_iam) | n/a | `map` | <pre>{<br/>  "app": {<br/>    "cloud_roles": [<br/>      "editor"<br/>    ],<br/>    "enabled": true,<br/>    "folder_roles": [<br/>      "editor"<br/>    ]<br/>  }<br/>}</pre> | no |
 
 ## Outputs
 
