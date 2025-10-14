@@ -8,4 +8,11 @@ module "iam_accounts" {
   name         = format("testprefix-%s", each.key)
   folder_roles = each.value["folder_roles"]
   #   cloud_roles  = each.value["cloud_roles"]
+
+  timeouts = {
+    create = "30m"
+    update = "30m"
+    delete = "30m"
+  }
+
 }

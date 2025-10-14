@@ -12,4 +12,10 @@ module "iam_accounts" {
   enable_api_key           = false
   enable_account_key       = false
 
+  timeouts = {
+    create = "30m"
+    update = "30m"
+    delete = "30m"
+  }
+
 }
