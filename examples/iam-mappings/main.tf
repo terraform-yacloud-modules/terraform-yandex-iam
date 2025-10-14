@@ -16,4 +16,11 @@ module "iam_mapping" {
       roles = ["admin"]
     }
   ]
+
+  timeouts = {
+    create = "30m"
+    update = "30m"
+    delete = "30m"
+  }
+
 }

@@ -9,6 +9,16 @@ resource "yandex_iam_service_account" "main" {
   name        = var.name
   description = var.description
   folder_id   = var.folder_id
+
+  dynamic "timeouts" {
+    for_each = var.timeouts == null ? [] : [var.timeouts]
+    content {
+      create = try(timeouts.value.create, null)
+      update = try(timeouts.value.update, null)
+      delete = try(timeouts.value.delete, null)
+    }
+  }
+
 }
 
 # relationship between folder, service account, role
@@ -18,6 +28,7 @@ resource "yandex_resourcemanager_folder_iam_member" "main" {
   folder_id = local.folder_id
   member    = "serviceAccount:${yandex_iam_service_account.main.id}"
   role      = each.value
+
 }
 
 # relationship between cloud, service account, role
@@ -27,4 +38,5 @@ resource "yandex_resourcemanager_cloud_iam_member" "main" {
   cloud_id = local.cloud_id
   member   = "serviceAccount:${yandex_iam_service_account.main.id}"
   role     = each.value
+
 }

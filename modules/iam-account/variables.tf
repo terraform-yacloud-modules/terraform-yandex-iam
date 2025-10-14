@@ -86,3 +86,13 @@ variable "account_key_pgp_key" {
   type        = string
   default     = null
 }
+
+variable "timeouts" {
+  description = "Timeout settings for cluster operations"
+  type = object({
+    create = optional(string)
+    update = optional(string)
+    delete = optional(string)
+  })
+  default = null
+}
