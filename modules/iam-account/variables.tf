@@ -66,6 +66,39 @@ variable "api_key_pgp_key" {
   default     = null
 }
 
+
+
+variable "api_key_output_to_lockbox" {
+  description = "Configuration for storing API key in Yandex Lockbox secret"
+  type = object({
+    secret_id = string
+    key       = string
+  })
+  default = null
+}
+
+
+
+variable "static_access_key_output_to_lockbox" {
+  description = "Configuration for storing static access key in Yandex Lockbox secret"
+  type = object({
+    secret_id = string
+    key       = string
+  })
+  default = null
+}
+
+
+
+variable "account_key_output_to_lockbox" {
+  description = "Configuration for storing account key in Yandex Lockbox secret"
+  type = object({
+    secret_id = string
+    key       = string
+  })
+  default = null
+}
+
 variable "enable_account_key" {
   description = "If true, account key key will be created"
   type        = bool

@@ -47,7 +47,9 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_account_key_algorithm"></a> [account\_key\_algorithm](#input\_account\_key\_algorithm) | The algorithm used to generate the key | `string` | `"RSA_4096"` | no |
 | <a name="input_account_key_format"></a> [account\_key\_format](#input\_account\_key\_format) | The output format of the keys | `string` | `"PEM_FILE"` | no |
+| <a name="input_account_key_output_to_lockbox"></a> [account\_key\_output\_to\_lockbox](#input\_account\_key\_output\_to\_lockbox) | Configuration for storing account key in Yandex Lockbox secret | <pre>object({<br/>    secret_id = string<br/>    key       = string<br/>  })</pre> | `null` | no |
 | <a name="input_account_key_pgp_key"></a> [account\_key\_pgp\_key](#input\_account\_key\_pgp\_key) | An optional PGP key to encrypt the resulting private key material | `string` | `null` | no |
+| <a name="input_api_key_output_to_lockbox"></a> [api\_key\_output\_to\_lockbox](#input\_api\_key\_output\_to\_lockbox) | Configuration for storing API key in Yandex Lockbox secret | <pre>object({<br/>    secret_id = string<br/>    key       = string<br/>  })</pre> | `null` | no |
 | <a name="input_api_key_pgp_key"></a> [api\_key\_pgp\_key](#input\_api\_key\_pgp\_key) | An optional PGP key to encrypt the resulting private key material | `string` | `null` | no |
 | <a name="input_cloud_id"></a> [cloud\_id](#input\_cloud\_id) | Cloud-ID where where need to add permissions. If omitted default CLOUD\_ID will be used | `string` | `null` | no |
 | <a name="input_cloud_roles"></a> [cloud\_roles](#input\_cloud\_roles) | A list of roles that will be attached to in cloud scope | `list(string)` | `[]` | no |
@@ -58,7 +60,9 @@ No modules.
 | <a name="input_folder_id"></a> [folder\_id](#input\_folder\_id) | Folder-ID where need to add permissions. If omitted default FOLDER\_ID will be used | `string` | `null` | no |
 | <a name="input_folder_roles"></a> [folder\_roles](#input\_folder\_roles) | A list of roles that will be attached to in folder scope | `list(string)` | `[]` | no |
 | <a name="input_name"></a> [name](#input\_name) | Service account name | `string` | n/a | yes |
+| <a name="input_static_access_key_output_to_lockbox"></a> [static\_access\_key\_output\_to\_lockbox](#input\_static\_access\_key\_output\_to\_lockbox) | Configuration for storing static access key in Yandex Lockbox secret | <pre>object({<br/>    secret_id = string<br/>    key       = string<br/>  })</pre> | `null` | no |
 | <a name="input_static_access_key_pgp_key"></a> [static\_access\_key\_pgp\_key](#input\_static\_access\_key\_pgp\_key) | An optional PGP key to encrypt the resulting private key material | `string` | `null` | no |
+| <a name="input_timeouts"></a> [timeouts](#input\_timeouts) | Timeout settings for cluster operations | <pre>object({<br/>    create = optional(string)<br/>    update = optional(string)<br/>    delete = optional(string)<br/>  })</pre> | `null` | no |
 
 ## Outputs
 
