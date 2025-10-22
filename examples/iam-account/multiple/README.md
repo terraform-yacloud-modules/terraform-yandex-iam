@@ -37,7 +37,7 @@ No resources.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_iam"></a> [iam](#input\_iam) | n/a | `map` | <pre>{<br/>  "app": {<br/>    "cloud_roles": [<br/>      "editor"<br/>    ],<br/>    "enabled": true,<br/>    "folder_roles": [<br/>      "editor"<br/>    ]<br/>  }<br/>}</pre> | no |
+| <a name="input_iam"></a> [iam](#input\_iam) | IAM configuration for service accounts | <pre>map(object({<br/>    enabled      = bool<br/>    folder_roles = list(string)<br/>    cloud_roles  = list(string)<br/>  }))</pre> | <pre>{<br/>  "app": {<br/>    "cloud_roles": [<br/>      "editor"<br/>    ],<br/>    "enabled": true,<br/>    "folder_roles": [<br/>      "editor"<br/>    ]<br/>  }<br/>}</pre> | no |
 
 ## Outputs
 
