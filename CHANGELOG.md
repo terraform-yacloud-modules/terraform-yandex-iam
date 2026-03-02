@@ -1,3 +1,7 @@
+## v1.38.0 - 2026-03-02
+### Miscellaneous
+- 843213a build(deps): bump hashicorp/setup-terraform from 3 to 4 ([#93](https://github.com/terraform-yacloud-modules/terraform-yandex-iam/pull/93))
+
 ## v1.37.0 - 2026-02-24
 ### Miscellaneous
 - e744ba7 build(deps): bump kvendingoldo/git-flow-action from 2.2.0 to 2.16.0 ([#92](https://github.com/terraform-yacloud-modules/terraform-yandex-iam/pull/92))
