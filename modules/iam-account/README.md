@@ -35,6 +35,7 @@ No modules.
 |------|------|
 | [yandex_iam_service_account.main](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/iam_service_account) | resource |
 | [yandex_iam_service_account_api_key.main](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/iam_service_account_api_key) | resource |
+| [yandex_iam_service_account_iam_member.main](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/iam_service_account_iam_member) | resource |
 | [yandex_iam_service_account_key.main](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/iam_service_account_key) | resource |
 | [yandex_iam_service_account_static_access_key.main](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/iam_service_account_static_access_key) | resource |
 | [yandex_resourcemanager_cloud_iam_member.main](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/resourcemanager_cloud_iam_member) | resource |
@@ -60,6 +61,7 @@ No modules.
 | <a name="input_folder_id"></a> [folder\_id](#input\_folder\_id) | Folder-ID where need to add permissions. If omitted default FOLDER\_ID will be used | `string` | `null` | no |
 | <a name="input_folder_roles"></a> [folder\_roles](#input\_folder\_roles) | A list of roles that will be attached to in folder scope | `list(string)` | `[]` | no |
 | <a name="input_name"></a> [name](#input\_name) | Service account name | `string` | n/a | yes |
+| <a name="input_service_account_iam_members"></a> [service\_account\_iam\_members](#input\_service\_account\_iam\_members) | List of { role, member } to grant roles on this service account (e.g. iam.serviceAccounts.user). Member format: userAccount:id, serviceAccount:id, federatedUser:id, system:group:id | <pre>list(object({<br/>    role   = string<br/>    member = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_static_access_key_output_to_lockbox"></a> [static\_access\_key\_output\_to\_lockbox](#input\_static\_access\_key\_output\_to\_lockbox) | Configuration for storing static access key in Yandex Lockbox secret | <pre>object({<br/>    secret_id = string<br/>    key       = string<br/>  })</pre> | `null` | no |
 | <a name="input_static_access_key_pgp_key"></a> [static\_access\_key\_pgp\_key](#input\_static\_access\_key\_pgp\_key) | An optional PGP key to encrypt the resulting private key material | `string` | `null` | no |
 | <a name="input_timeouts"></a> [timeouts](#input\_timeouts) | Timeout settings for cluster operations | <pre>object({<br/>    create = optional(string)<br/>    update = optional(string)<br/>    delete = optional(string)<br/>  })</pre> | `null` | no |

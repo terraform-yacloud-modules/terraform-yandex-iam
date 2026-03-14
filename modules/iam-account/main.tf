@@ -8,7 +8,7 @@ locals {
 resource "yandex_iam_service_account" "main" {
   name        = var.name
   description = var.description
-  folder_id   = var.folder_id
+  folder_id   = local.folder_id
 
   dynamic "timeouts" {
     for_each = var.timeouts == null ? [] : [var.timeouts]
@@ -39,4 +39,15 @@ resource "yandex_resourcemanager_cloud_iam_member" "main" {
   member   = "serviceAccount:${yandex_iam_service_account.main.id}"
   role     = each.value
 
+}
+
+# Роли на самом сервисном аккаунте (кто может им пользоваться, например iam.serviceAccounts.user)
+resource "yandex_iam_service_account_iam_member" "main" {
+  for_each = length(var.service_account_iam_members) > 0 ? {
+    for idx, m in var.service_account_iam_members : "${idx}-${m.member}-${m.role}" => m
+  } : {}
+
+  service_account_id = yandex_iam_service_account.main.id
+  role               = each.value.role
+  member             = each.value.member
 }
