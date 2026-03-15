@@ -42,6 +42,18 @@ variable "cloud_roles" {
 }
 
 #
+# IAM members on the service account (who can use this SA)
+#
+variable "service_account_iam_members" {
+  description = "List of { role, member } to grant roles on this service account (e.g. iam.serviceAccounts.user). Member format: userAccount:id, serviceAccount:id, federatedUser:id, system:group:id"
+  type = list(object({
+    role   = string
+    member = string
+  }))
+  default = []
+}
+
+#
 # keys options
 #
 variable "enable_static_access_key" {
