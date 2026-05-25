@@ -1,3 +1,7 @@
+## v1.40.0 - 2026-05-25
+### Features
+- f34a00b feat: add missing options
+
 ## v1.39.0 - 2026-03-15
 ### Miscellaneous
 - b42d93e iam-account: add service account IAM members ([#94](https://github.com/terraform-yacloud-modules/terraform-yandex-iam/pull/94))
