@@ -28,8 +28,10 @@ module "iam_accounts" {
   ]
   cloud_roles              = []
   enable_static_access_key = true
-  enable_api_key           = false
+  enable_api_key           = true
   enable_account_key       = false
+
+  api_key_scopes = ["yc.ydb.topics.manage", "yc.ydb.tables.manage"]
 
   # Кто может использовать этот сервисный аккаунт (запуск ресурсов от его имени, ключи, impersonate).
   service_account_iam_members = [

@@ -54,32 +54,61 @@ variable "service_account_iam_members" {
 }
 
 #
-# keys options
+# static key options
 #
 variable "enable_static_access_key" {
   description = "If true, static access key will be created"
   type        = bool
   default     = false
 }
+variable "static_access_key_description" {
+  description = "The static access key description"
+  type        = string
+  default     = ""
+}
 variable "static_access_key_pgp_key" {
   description = "An optional PGP key to encrypt the resulting private key material"
   type        = string
   default     = null
 }
+variable "static_access_key_output_to_lockbox" {
+  description = "Configuration for storing static access key in Yandex Lockbox secret"
+  type = object({
+    secret_id            = string
+    entry_for_access_key = string
+    entry_for_secret_key = string
+  })
+  default = null
+}
 
+#
+# api key options
+#
 variable "enable_api_key" {
   description = "If true, API key will be created"
   type        = bool
   default     = false
+}
+variable "api_key_description" {
+  description = "The api key description"
+  type        = string
+  default     = ""
 }
 variable "api_key_pgp_key" {
   description = "An optional PGP key to encrypt the resulting private key material"
   type        = string
   default     = null
 }
-
-
-
+variable "api_key_expires_at" {
+  description = "The key will be no longer valid after expiration timestamp. Example: 2024-11-11T00:00:00Z"
+  type        = string
+  default     = null
+}
+variable "api_key_scopes" {
+  description = "The list of scopes of the key."
+  type        = list(string)
+  default     = []
+}
 variable "api_key_output_to_lockbox" {
   description = "Configuration for storing API key in Yandex Lockbox secret"
   type = object({
@@ -89,32 +118,18 @@ variable "api_key_output_to_lockbox" {
   default = null
 }
 
-
-
-variable "static_access_key_output_to_lockbox" {
-  description = "Configuration for storing static access key in Yandex Lockbox secret"
-  type = object({
-    secret_id = string
-    key       = string
-  })
-  default = null
-}
-
-
-
-variable "account_key_output_to_lockbox" {
-  description = "Configuration for storing account key in Yandex Lockbox secret"
-  type = object({
-    secret_id = string
-    key       = string
-  })
-  default = null
-}
-
+#
+# account key options
+#
 variable "enable_account_key" {
   description = "If true, account key key will be created"
   type        = bool
   default     = false
+}
+variable "account_key_description" {
+  description = "The account key description"
+  type        = string
+  default     = ""
 }
 variable "account_key_algorithm" {
   description = "The algorithm used to generate the key"
@@ -130,6 +145,14 @@ variable "account_key_pgp_key" {
   description = "An optional PGP key to encrypt the resulting private key material"
   type        = string
   default     = null
+}
+variable "account_key_output_to_lockbox" {
+  description = "Configuration for storing account key in Yandex Lockbox secret"
+  type = object({
+    secret_id             = string
+    entry_for_private_key = string
+  })
+  default = null
 }
 
 variable "timeouts" {
