@@ -1,3 +1,7 @@
+## v1.41.0 - 2026-06-04
+### Bug Fixes
+- 9866f63 Fix: keys.tf
+
 ## v1.40.0 - 2026-05-25
 ### Features
 - f34a00b feat: add missing options
