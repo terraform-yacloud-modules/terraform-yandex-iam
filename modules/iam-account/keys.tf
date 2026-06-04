@@ -33,7 +33,7 @@ resource "yandex_iam_service_account_key" "main" {
     for_each = var.account_key_output_to_lockbox != null ? [var.account_key_output_to_lockbox] : []
     content {
       secret_id             = output_to_lockbox.value.secret_id
-      entry_for_private_key = output_to_lockbox.value.key
+      entry_for_private_key = output_to_lockbox.value.entry_for_private_key
     }
   }
 }
@@ -49,8 +49,8 @@ resource "yandex_iam_service_account_static_access_key" "main" {
     for_each = var.static_access_key_output_to_lockbox != null ? [var.static_access_key_output_to_lockbox] : []
     content {
       secret_id            = output_to_lockbox.value.secret_id
-      entry_for_access_key = output_to_lockbox.value.key
-      entry_for_secret_key = "${output_to_lockbox.value.key}_secret"
+      entry_for_access_key = output_to_lockbox.value.entry_for_access_key
+      entry_for_secret_key = output_to_lockbox.value.entry_for_secret_key
     }
   }
 }
