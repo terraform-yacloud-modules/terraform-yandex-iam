@@ -1,3 +1,7 @@
+## v1.43.0 - 2026-09-01
+### Bug Fixes
+- df134b6 fix: передача folder_id в примере с приоритетом tfvars над YC_FOLDER_ID ([#97](https://github.com/terraform-yacloud-modules/terraform-yandex-iam/pull/97))
+
 ## v1.42.0 - 2026-09-01
 ### Miscellaneous
 - 05fe2c2 build(deps): bump actions/cache from 5.0.3 to 5.0.5 ([#96](https://github.com/terraform-yacloud-modules/terraform-yandex-iam/pull/96))
