@@ -1,3 +1,7 @@
+## v1.42.0 - 2026-09-01
+### Miscellaneous
+- 05fe2c2 build(deps): bump actions/cache from 5.0.3 to 5.0.5 ([#96](https://github.com/terraform-yacloud-modules/terraform-yandex-iam/pull/96))
+
 ## v1.41.0 - 2026-06-04
 ### Bug Fixes
 - 9866f63 Fix: keys.tf
