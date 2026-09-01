@@ -1,5 +1,8 @@
 data "yandex_client_config" "client" {}
 
+provider "yandex" {
+}
+
 locals {
   sa_name = "test-iam-accounts"
 }
@@ -8,13 +11,13 @@ locals {
 resource "yandex_iam_service_account" "sa_user" {
   name        = "${local.sa_name}-user"
   description = "Сервисный аккаунт с правом использовать основной SA"
-  folder_id   = data.yandex_client_config.client.folder_id
+  folder_id   = coalesce(var.folder_id, data.yandex_client_config.client.folder_id)
 }
 
 resource "yandex_lockbox_secret" "sa_static_key" {
   name        = "sa-static-access-key-${local.sa_name}"
   description = "Static access key for service account"
-  folder_id   = data.yandex_client_config.client.folder_id
+  folder_id   = coalesce(var.folder_id, data.yandex_client_config.client.folder_id)
 }
 
 module "iam_accounts" {
