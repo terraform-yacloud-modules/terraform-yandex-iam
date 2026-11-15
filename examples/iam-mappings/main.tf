@@ -12,6 +12,10 @@ resource "yandex_iam_service_account" "admin_sa" {
 module "iam_mapping" {
   source = "../../modules/iam-mappings"
 
+  # Каждый элемент списка — группа участников:
+  # name  — произвольная метка для читаемости, модуль её не использует;
+  # users — IAM-идентификаторы участников (serviceAccount:<id>, userAccount:<id>, ...);
+  # roles — роли, которые получает каждый участник группы.
   folder_mappings = [
     {
       name  = "monitoring"
@@ -20,6 +24,7 @@ module "iam_mapping" {
     }
   ]
 
+  # Роли на уровне облака; cloud_id по умолчанию берётся из конфигурации провайдера.
   cloud_mappings = [
     {
       name  = "admin"
