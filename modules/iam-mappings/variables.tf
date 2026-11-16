@@ -19,6 +19,15 @@ variable "folder_id" {
 variable "folder_mappings" {
   description = <<EOT
 Group of IAM User-IDs and it's permissions in FOLDER
+
+Each element describes one group of members:
+  name  - arbitrary human-readable group name. The module does not use it: it exists only
+          to make the configuration readable, and no resources are created from it.
+  users - list of IAM member identifiers: userAccount:<id>, federatedUser:<id>,
+          serviceAccount:<id> or group:<id>.
+  roles - list of Yandex Cloud roles granted to every member of the group.
+For every member x role pair the module creates a separate
+yandex_resourcemanager_folder_iam_member, so users and roles are multiplied.
 ### Example
 #folder_mappings = [
   {
@@ -40,6 +49,15 @@ EOT
 variable "cloud_mappings" {
   description = <<EOT
 Group of IAM User-IDs and it's permissions in CLOUD
+
+Each element describes one group of members:
+  name  - arbitrary human-readable group name. The module does not use it: it exists only
+          to make the configuration readable, and no resources are created from it.
+  users - list of IAM member identifiers: userAccount:<id>, federatedUser:<id>,
+          serviceAccount:<id> or group:<id>.
+  roles - list of Yandex Cloud roles granted to every member of the group.
+For every member x role pair the module creates a separate
+yandex_resourcemanager_cloud_iam_member, so users and roles are multiplied.
 ### Example
 #cloud_mappings = [
   {
