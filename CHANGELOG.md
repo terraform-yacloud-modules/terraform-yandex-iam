@@ -1,3 +1,7 @@
+## v1.46.0 - 2026-11-16
+### Documentation
+- 8ecd9bb docs: пояснение iam-mappings и поля name ([#101](https://github.com/terraform-yacloud-modules/terraform-yandex-iam/pull/101))
+
 ## v1.45.0 - 2026-11-14
 ### Miscellaneous
 - 8b00137 build(deps): bump actions/checkout from 6 to 7 ([#98](https://github.com/terraform-yacloud-modules/terraform-yandex-iam/pull/98))
