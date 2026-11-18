@@ -1,3 +1,7 @@
+## v1.47.0 - 2026-11-18
+### Miscellaneous
+- 6722d4a ci: run semver job only on push to main ([#102](https://github.com/terraform-yacloud-modules/terraform-yandex-iam/pull/102))
+
 ## v1.46.0 - 2026-11-16
 ### Documentation
 - 8ecd9bb docs: пояснение iam-mappings и поля name ([#101](https://github.com/terraform-yacloud-modules/terraform-yandex-iam/pull/101))
