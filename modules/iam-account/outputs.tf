@@ -43,3 +43,13 @@ output "sak_key_fingerprint" {
   description = "The fingerprint of the PGP key used to encrypt the secret key"
   value       = var.enable_static_access_key && var.static_access_key_pgp_key != null ? yandex_iam_service_account_static_access_key.main[0].key_fingerprint : null
 }
+
+output "workload_identity_federation_id" {
+  description = "OIDC workload identity federation ID (created or reused)"
+  value       = local.workload_identity_federation_id
+}
+
+output "workload_identity_credential_ids" {
+  description = "Map of external subject ID to federated credential ID"
+  value       = { for subject, credential in yandex_iam_workload_identity_federated_credential.main : subject => credential.id }
+}
