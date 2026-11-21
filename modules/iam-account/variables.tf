@@ -54,6 +54,37 @@ variable "service_account_iam_members" {
 }
 
 #
+# workload identity federation (OIDC)
+#
+variable "workload_identity_federation" {
+  description = <<EOT
+Optional OIDC workload identity federation for the service account.
+When set, the module creates a new federation (create_federation = true, the
+default) or reuses an existing one (create_federation = false together with
+existing_federation_id) and issues federated credentials for every subject from
+workload_identity_subjects.
+EOT
+  type = object({
+    create_federation      = optional(bool, true)
+    name                   = optional(string)
+    description            = optional(string, "")
+    issuer                 = optional(string)
+    jwks_url               = optional(string)
+    audiences              = optional(list(string), [])
+    labels                 = optional(map(string), {})
+    disabled               = optional(bool, false)
+    existing_federation_id = optional(string)
+  })
+  default = null
+}
+
+variable "workload_identity_subjects" {
+  description = "External subject IDs (exact match) allowed to get an IAM token for this service account. Used only together with workload_identity_federation"
+  type        = list(string)
+  default     = []
+}
+
+#
 # static key options
 #
 variable "enable_static_access_key" {

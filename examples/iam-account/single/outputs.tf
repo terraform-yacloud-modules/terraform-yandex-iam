@@ -43,3 +43,13 @@ output "sak_key_fingerprint" {
   description = "The fingerprint of the PGP key used to encrypt the secret key"
   value       = module.iam_accounts.sak_key_fingerprint
 }
+
+output "workload_identity_federation_id" {
+  description = "OIDC workload identity federation ID"
+  value       = module.iam_accounts.workload_identity_federation_id
+}
+
+output "workload_identity_credential_ids" {
+  description = "Map of external subject ID to federated credential ID"
+  value       = module.iam_accounts.workload_identity_credential_ids
+}

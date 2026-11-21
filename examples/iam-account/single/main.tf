@@ -45,9 +45,29 @@ module "iam_accounts" {
   ]
 
   static_access_key_output_to_lockbox = {
-    secret_id = yandex_lockbox_secret.sa_static_key.id
-    key       = "static_access_key"
+    secret_id            = yandex_lockbox_secret.sa_static_key.id
+    entry_for_access_key = "static_access_key_id"
+    entry_for_secret_key = "static_access_key_secret"
   }
+
+  # OIDC workload identity federation: внешние системы (например, GitHub Actions)
+  # получают IAM-токен сервисного аккаунта без статического ключа.
+  workload_identity_federation = {
+    name        = "${local.sa_name}-github-oidc"
+    description = "GitHub Actions OIDC federation for ${local.sa_name}"
+    issuer      = "https://token.actions.githubusercontent.com"
+    jwks_url    = "https://token.actions.githubusercontent.com/.well-known/jwks"
+    audiences   = ["https://github.com/terraform-yacloud-modules"]
+    labels = {
+      managed-by = "terraform"
+      issuer     = "github-actions"
+    }
+  }
+
+  workload_identity_subjects = [
+    "repo:terraform-yacloud-modules/terraform-yandex-iam:ref:refs/heads/main",
+    "repo:terraform-yacloud-modules/terraform-yandex-iam:pull_request",
+  ]
 
   timeouts = {
     create = "30m"

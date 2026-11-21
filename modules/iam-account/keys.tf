@@ -16,7 +16,7 @@ resource "yandex_iam_service_account_api_key" "main" {
   }
 
   lifecycle {
-    ignore_changes = [scope]
+    ignore_changes = [scopes]
   }
 }
 
