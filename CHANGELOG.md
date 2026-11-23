@@ -1,3 +1,7 @@
+## v1.48.0 - 2026-11-23
+### Features
+- 49fdbbb feat: add OIDC workload identity federation to iam-account ([#103](https://github.com/terraform-yacloud-modules/terraform-yandex-iam/pull/103))
+
 ## v1.47.0 - 2026-11-18
 ### Miscellaneous
 - 6722d4a ci: run semver job only on push to main ([#102](https://github.com/terraform-yacloud-modules/terraform-yandex-iam/pull/102))
