@@ -44,7 +44,7 @@ resource "yandex_resourcemanager_cloud_iam_member" "main" {
 # Роли на самом сервисном аккаунте (кто может им пользоваться, например iam.serviceAccounts.user)
 resource "yandex_iam_service_account_iam_member" "main" {
   for_each = length(var.service_account_iam_members) > 0 ? {
-    for idx, m in var.service_account_iam_members : "${idx}-${m.member}-${m.role}" => m
+    for idx, m in var.service_account_iam_members : tostring(idx) => m
   } : {}
 
   service_account_id = yandex_iam_service_account.main.id
